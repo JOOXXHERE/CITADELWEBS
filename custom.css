@@ -403,11 +403,21 @@ body::before {
     }
 
     .contact-card {
-        padding: 40px 20px;
+        padding: 30px 15px; /* More compact padding */
+    }
+
+    .contact-header {
+        margin-bottom: 25px; /* Reduced header margin */
     }
 
     .glass-input {
-        padding: 15px 20px;
+        padding: 12px 15px; /* Slimmer inputs */
+        margin-bottom: 15px; /* Closer fields */
+        border-radius: 12px;
+    }
+
+    .glass-input input, .glass-input select {
+        font-size: 15px; /* Slightly smaller text */
     }
 
     .phone-group {
@@ -427,6 +437,10 @@ body::before {
 }
 
 @media (max-width: 480px) {
+    .section {
+        padding: 60px 0;
+    }
+
     .title {
         font-size: 28px;
     }
