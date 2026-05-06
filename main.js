@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Typing Effect Hook
     const typeTarget = document.querySelector('.hero-content .highlight');
-    const words = ['Digital Presence', 'User Experience', 'Web Solutions', 'Visual Brand'];
+    const words = ['Digital Presence', 'AI Voice Agents', 'Mobile Apps', 'Web Solutions'];
     let wordIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
