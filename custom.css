@@ -330,14 +330,122 @@ body::before {
     box-shadow: var(--glass-shadow);
 }
 
-/* Responsive */
+/* Responsive Adjustments - Fixes the "mixed" look on mobile */
 @media (max-width: 992px) {
-    .contact-grid { grid-template-columns: 1fr; }
-    .hero-content { padding: 50px 30px; }
-    .navbar { margin: 10px; width: calc(100% - 20px) !important; }
+    .navbar {
+        margin: 10px;
+        width: calc(100% - 20px) !important;
+        padding: 0 15px;
+    }
+    
+    .logo img {
+        height: 35px;
+    }
+
+    .hero-content {
+        padding: 60px 30px;
+        width: 95%;
+    }
+
+    .title {
+        font-size: 42px;
+        line-height: 1.2;
+    }
+
+    .section {
+        padding: 80px 0;
+    }
 }
 
 @media (max-width: 768px) {
-    .title { font-size: 40px; }
-    .footer { width: 90%; padding: 20px; }
+    .nav-links {
+        display: flex;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 85%;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        z-index: 2000;
+        gap: 40px;
+        box-shadow: -20px 0 50px rgba(0, 98, 255, 0.1);
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links li a {
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--primary-dark);
+    }
+
+    .menu-toggle {
+        display: block;
+        font-size: 24px;
+        color: var(--primary);
+        cursor: pointer;
+        z-index: 2100;
+    }
+
+    .hero {
+        padding-top: 120px;
+    }
+
+    .title {
+        font-size: 34px;
+    }
+
+    .contact-card {
+        padding: 40px 20px;
+    }
+
+    .glass-input {
+        padding: 15px 20px;
+    }
+
+    .phone-group {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .country-select {
+        flex: none;
+        width: 100%;
+    }
+
+    .footer {
+        width: 95%;
+        padding: 20px 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 28px;
+    }
+    
+    .hero-btns {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .btn-primary, .btn-clean {
+        width: 100%;
+        text-align: center;
+        padding: 15px 20px;
+    }
+}
+
+/* Animations Restored */
+@keyframes float-slow {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -20px) scale(1.05); }
+    66% { transform: translate(-20px, 30px) scale(0.95); }
 }
