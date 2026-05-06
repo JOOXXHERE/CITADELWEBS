@@ -1,35 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Custom Cursor logic
-    const cursorDot = document.querySelector('.cursor-dot');
-    const cursorOutline = document.querySelector('.cursor-outline');
-
-    window.addEventListener('mousemove', (e) => {
-        const posX = e.clientX;
-        const posY = e.clientY;
-
-        cursorDot.style.left = `${posX}px`;
-        cursorDot.style.top = `${posY}px`;
-
-        // Update outline with small delay for smooth trailing effect
-        cursorOutline.animate({
-            left: `${posX}px`,
-            top: `${posY}px`
-        }, { duration: 500, fill: "forwards" });
-    });
-
-    // Hover effect for interactive elements
-    const links = document.querySelectorAll('a, button, .clickable');
-    links.forEach(link => {
-        link.addEventListener('mouseenter', () => {
-            cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
-            cursorOutline.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
-        });
-        link.addEventListener('mouseleave', () => {
-            cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
-            cursorOutline.style.backgroundColor = 'transparent';
-        });
-    });
-
     // Navbar scroll effect
     const navbar = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {
@@ -73,14 +42,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Typing Effect Hook
-    const typeTarget = document.querySelector('.hero-content h1 span');
-    const words = ['JOOXX', 'Musician', 'Editor', 'Developer', 'Gamer'];
+    const typeTarget = document.querySelector('.hero-content .highlight');
+    const words = ['Digital Presence', 'User Experience', 'Web Solutions', 'Visual Brand'];
     let wordIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
     let typeSpeed = 150;
 
     function type() {
+        if (!typeTarget) return;
         const currentWord = words[wordIndex];
         const displayText = isDeleting 
             ? currentWord.substring(0, charIndex--) 

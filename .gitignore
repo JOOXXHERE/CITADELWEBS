@@ -1,0 +1,13 @@
+form*.html
+google_form*.html
+*.log
+.DS_Store
+node_modules/
+dist/
+finance-manager/
+jooxx financial tracker/
+sxg-client-portfolio/
+launcher.*
+package.json
+payment-qr.jpg
+jooxx.jpg

@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout | JOOXX</title>
+    <title>CITADELWEBS</title>
+    <link rel="icon" type="image/jpeg" href="citadel_logo.jpg">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,6 +12,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="custom.css">
     <style>
         .checkout-page {
             min-height: 100vh;
@@ -18,156 +20,169 @@
             align-items: center;
             justify-content: center;
             padding: 80px 20px;
+            background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
         }
 
         .checkout-container {
             width: 100%;
-            max-width: 1000px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            background: var(--bg-card);
-            border: 1px solid var(--glass-border);
-            border-radius: 30px;
-            overflow: hidden;
+            max-width: 800px;
             padding: 60px;
+            text-align: center;
         }
 
-        .checkout-details h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            line-height: 1.1;
+        .features-list {
+            margin-bottom: 40px;
+            text-align: left;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .checkout-details p {
+        .features-list h1 {
+            font-size: 45px;
+            margin-bottom: 25px;
+            text-align: center;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .features-list ul {
+            list-style: none;
+            padding: 0;
             color: var(--text-muted);
             font-size: 18px;
-            margin-bottom: 30px;
         }
 
-        .service-list {
-            margin-bottom: 40px;
-        }
-
-        .service-item {
+        .features-list li {
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
             gap: 15px;
-            margin-bottom: 15px;
-            font-size: 16px;
         }
 
-        .service-item i {
+        .features-list li i {
             color: var(--primary);
+            font-size: 20px;
         }
 
-        .test-drive {
-            display: inline-block;
-            margin-top: 20px;
-            color: var(--primary);
-            text-decoration: underline;
-            font-weight: 600;
-        }
-
-        .payment-section {
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 20px;
+        .call-box {
             padding: 40px;
-            text-align: center;
-            border: 1px solid var(--glass-border);
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto 40px auto;
         }
 
-        .qr-card {
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            display: inline-block;
+        .call-box h3 {
+            font-size: 26px;
             margin-bottom: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            font-family: 'Outfit', sans-serif;
         }
 
-        .qr-card img {
-            width: 250px;
-            height: 250px;
-            display: block;
+        .form-group input {
+            width: 100%;
+            padding: 18px;
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            color: var(--text-main);
+            margin-bottom: 25px;
+            font-size: 16px;
+            outline: none;
+            transition: var(--transition);
         }
 
-        .price-tag {
-            font-size: 32px;
-            font-weight: 800;
-            margin-bottom: 10px;
+        .form-group input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(0, 98, 255, 0.1);
         }
 
-        .price-tag span {
+        .btn-submit {
+            width: 100%;
+            padding: 18px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 12px;
             font-size: 18px;
-            color: var(--text-muted);
-            font-weight: 400;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
         }
 
-        .payment-note {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-top: 20px;
+        .btn-submit:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 98, 255, 0.3);
         }
 
         .back-link {
             position: absolute;
             top: 40px;
             left: 40px;
-            color: var(--text-muted);
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        @media (max-width: 850px) {
-            .checkout-container {
-                grid-template-columns: 1fr;
-                padding: 40px 20px;
-            }
-            .checkout-page {
-                padding: 120px 20px 60px 20px;
-            }
+        #success-message {
+            margin-top: 25px;
+            padding: 20px;
+            background: rgba(0, 200, 0, 0.05);
+            border: 1px solid #28a745;
+            border-radius: 12px;
+            color: #28a745;
+            font-weight: 600;
         }
     </style>
 </head>
-<body class="dark-theme">
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="citadel_logo.jpg" alt="CITADELWEBS Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="projects.html">Works</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+    <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Works</a>
 
     <main class="checkout-page">
-        <div class="checkout-container reveal active" style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 400px;">
-            <div class="features-list" style="margin-bottom: 40px; text-align: left; max-width: 400px; width: 100%;">
-                <h1 style="font-size: 40px; margin-bottom: 25px; text-align: center;">Live <span>1:1</span> Call</h1>
-                <ul style="list-style: none; padding: 0; color: var(--text-muted); font-size: 18px;">
-                    <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;"><i class="fas fa-video" style="color: var(--primary);"></i> Talk to me live</li>
-                    <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;"><i class="fas fa-code" style="color: var(--primary);"></i> Turn your ideas to websites</li>
-                    <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;"><i class="fas fa-lightbulb" style="color: var(--primary);"></i> Get technical advice</li>
+        <div class="checkout-container glass-card reveal active">
+            <div class="features-list">
+                <h1>Strategy <span>Session</span></h1>
+                <ul>
+                    <li><i class="fas fa-video"></i> 45-Minute Live Strategy Call</li>
+                    <li><i class="fas fa-chart-line"></i> Digital Growth Roadmap</li>
+                    <li><i class="fas fa-shield-alt"></i> Tech Stack Security Audit</li>
                 </ul>
             </div>
 
-            <div class="call-box" style="background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); border-radius: 15px; padding: 30px; width: 100%; max-width: 400px; margin-bottom: 30px;">
-                <h3 style="font-size: 24px; margin-bottom: 20px;">Register Now</h3>
+            <div class="call-box">
+                <h3>Reserve Your Spot</h3>
                 <form id="registration-form" action="https://docs.google.com/forms/d/e/1FAIpQLSfHvPKR98Z6UxrvZWNefIS4r5iQWYkeOmm6xeRufBupeS5dvw/formResponse" method="POST">
                     <div class="form-group">
-                        <input type="email" id="email" name="entry.2037064031" placeholder="Enter your email address" required 
-                               style="width: 100%; padding: 15px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: 10px; color: white; margin-bottom: 20px;">
+                        <input type="email" id="email" name="entry.2037064031" placeholder="Enter your business email" required>
                     </div>
                     <input type="hidden" name="fvv" value="1">
                     <input type="hidden" name="pageHistory" value="0">
                     <input type="hidden" name="fbzx" value="4096226219261270335">
-                    <button type="submit" class="btn-clean" style="width: 100%; border-radius: 10px; color: black; font-weight: bold;">Book Call</button>
+                    <button type="submit" class="btn-submit">Book Session</button>
                 </form>
 
-                <div id="success-message" style="display: none; margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.05); border: 1px solid var(--primary); border-radius: 10px; color: var(--primary); font-size: 14px; text-align: center;">
-                    <i class="fas fa-check-circle" style="margin-bottom: 10px; font-size: 20px;"></i><br>
-                    You are registered! You will receive an email shortly with details.
+                <div id="success-message" style="display: none;">
+                    <i class="fas fa-check-circle" style="font-size: 24px; margin-bottom: 10px;"></i><br>
+                    Registration Successful! Check your inbox for confirmation details.
                 </div>
             </div>
 
-            <a href="index.html" class="btn-clean">Return to Portfolio</a>
+            <a href="index.html" class="btn-clean">Explore More</a>
         </div>
     </main>
 
@@ -179,11 +194,9 @@
             e.preventDefault();
             const formData = new FormData(form);
             
-            // Show success message immediately as requested
             form.style.display = 'none';
             successMessage.style.display = 'block';
 
-            // Send to Google Forms in background
             try {
                 await fetch(form.action, {
                     method: 'POST',
@@ -191,7 +204,7 @@
                     body: formData
                 });
             } catch (err) {
-                console.error("Form submission failed, but user saw success message.");
+                console.error("Submission error", err);
             }
         });
     </script>
